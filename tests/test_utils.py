@@ -1,5 +1,7 @@
 import unittest
+
 from app import utils
+from app.errors import InvalidUnixTime
 
 
 class UtilsTestCase(unittest.TestCase):
@@ -10,11 +12,11 @@ class UtilsTestCase(unittest.TestCase):
         pass
 
     def test_get_readable_hours_negative_time(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(InvalidUnixTime):
             utils.get_readable_hour(unix_time=-1000)
 
     def test_get_readable_hours_over_max_time(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(InvalidUnixTime):
             utils.get_readable_hour(unix_time=86400)
 
     def test_get_readable_hours(self):

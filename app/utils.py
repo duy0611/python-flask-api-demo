@@ -1,9 +1,15 @@
+from app.errors import InvalidUnixTime
+
+
+MIN_UNIX_TIME = 0
+MAX_UNIX_TIME = 86399
+
 
 def get_readable_hour(unix_time):
     '''Convert unix time to HH:MM:SS AM/PM format'''
 
-    if (unix_time < 0) or (unix_time > 86399):
-        raise Exception('Invalid unix_time: ' + str(unix_time))
+    if (unix_time < MIN_UNIX_TIME) or (unix_time > MAX_UNIX_TIME):
+        raise InvalidUnixTime('Invalid unix_time: ' + str(unix_time))
 
     hours = unix_time // 3600 % 24
     minutes = unix_time // 60 % 60
