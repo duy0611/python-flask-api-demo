@@ -2,7 +2,7 @@
 def get_readable_hour(unix_time):
     '''Convert unix time to HH:MM:SS AM/PM format'''
 
-    if (unix_time < 0):
+    if (unix_time < 0) or (unix_time > 86399):
         raise Exception('Invalid unix_time: ' + str(unix_time))
 
     hours = unix_time // 3600 % 24

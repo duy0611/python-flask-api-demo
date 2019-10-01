@@ -9,9 +9,13 @@ class UtilsTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_get_readable_hours_error(self):
+    def test_get_readable_hours_negative_time(self):
         with self.assertRaises(Exception):
             utils.get_readable_hour(unix_time=-1000)
+
+    def test_get_readable_hours_over_max_time(self):
+        with self.assertRaises(Exception):
+            utils.get_readable_hour(unix_time=86400)
 
     def test_get_readable_hours(self):
         str_format = utils.get_readable_hour(unix_time=0)
