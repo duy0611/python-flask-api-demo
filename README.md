@@ -36,6 +36,11 @@ pip install -r requirements.txt
 flask test
 ```
 
+**To run unit test with coverage**
+```
+flask test --coverage
+```
+
 **To run the REST api**
 ```
 flask run
@@ -49,6 +54,7 @@ Example **curl** command:
 ```
 curl -X POST "http://localhost:5000/api/v1/opening_hours/convert" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"thursday\": [ { \"type\": \"open\", \"value\": 64800 } ], \"friday\": [ { \"type\": \"close\", \"value\": 3600 } ], \"saturday\": [ { \"type\": \"open\", \"value\": 32400 }, { \"type\": \"close\", \"value\": 39600 }, { \"type\": \"open\", \"value\": 57600 }, { \"type\": \"close\", \"value\": 82800 } ]}"
 ```
+
 ## Thoughts about the current json data format
 
 

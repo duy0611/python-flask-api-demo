@@ -32,7 +32,7 @@ class OpeningHours(Resource):
         result = _convert_opening_hours_json(json_data)
 
         # print result to console
-        print(result)
+        # print(result)
 
         return result
         
@@ -57,7 +57,7 @@ def _convert_opening_hours_json(json_data):
                     # append time_slot to current date
                     working_time_slots[i].appendTimeSlot(time_data['type'], time_data['value'])
     
-    return '\n'.join([x.getReadableFormat() for x in working_time_slots])
+    return [x.getReadableFormat() for x in working_time_slots]
 
 
 @api.errorhandler(InvalidUnixTime)
