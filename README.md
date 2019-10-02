@@ -18,10 +18,14 @@ Sunday: Closed
 
 ## How to run the program
 
+Pre-requisities: **Python3** and **Pip**
+
 Install virtualenv with command: ```pip install virtualenv```
 
 Create and activate the virtual enviroment:
 ```
+cd python-flask-api-demo/
+
 virtualenv venv
 source venv/bin/activate
 ```
@@ -29,6 +33,12 @@ source venv/bin/activate
 Install the missing python dependencies:
 ```
 pip install -r requirements.txt
+```
+
+**Set FLASK_APP environment**
+```
+export FLASK_APP=flasky.py
+export FLASK_ENV=development
 ```
 
 **To run unit test**
@@ -122,7 +132,7 @@ Some of the advantages of this json/database structure:
 - should be easier to serialize / descrialize the structure
 - should be easier to filter and select only restaurants that opening now
 - should be eaiser to add validation on class / json data structure
-- don't have to care about specical cases: from the structure, we cna clearly say that the retaurant can be opened/closed many times during the day of if it is closed on next day
+- don't have to care about specical cases: from the structure, we can clearly say that the retaurant can be opened/closed many times during the day of if it is closed on next day
 - no need to deal with "Magic string": form the value we can say what day of week it is
 - should be easier to add validation on open time / close time
 
