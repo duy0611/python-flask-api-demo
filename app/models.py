@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import List
 
 from app import utils
 from app.errors import InvalidWorkingTimeSlot
@@ -14,7 +15,7 @@ class DayOfWeek(Enum):
     SUNDAY = 7
 
     @staticmethod
-    def from_str(label):
+    def from_str(label: str):
         if label.upper() == 'MONDAY':
             return DayOfWeek.MONDAY
         elif label.upper() == 'TUESDAY':
@@ -34,7 +35,7 @@ class DayOfWeek(Enum):
 
 
 class WorkingTimeSlot:
-    def __init__(self, day_of_week, opened_times, closed_times):
+    def __init__(self, day_of_week: int, opened_times: List[int], closed_times: List[int]):
         self.day_of_week = day_of_week
         self.opened_times = opened_times if opened_times else []
         self.closed_times = closed_times if closed_times else []
@@ -47,7 +48,7 @@ class WorkingTimeSlot:
         else:
             raise NotImplementedError
 
-    def _isValid(self):
+    def _isValid(self) -> bool:
         # day of week between 1 and 7
         if self.day_of_week < 1 or self.day_of_week > 7:
             return False
@@ -67,7 +68,7 @@ class WorkingTimeSlot:
 
         return True
 
-    def getReadableFormat(self):
+    def getReadableFormat(self) -> str:
         if not self._isValid():
             raise InvalidWorkingTimeSlot('Invalid working time slot: %s %s %s' % (
                 self.day_of_week, self.opened_times, self.closed_times))

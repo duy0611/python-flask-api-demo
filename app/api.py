@@ -1,3 +1,4 @@
+from typing import Dict
 from flask import Blueprint
 from flask_restplus import Api, Resource, fields
 
@@ -38,7 +39,7 @@ class OpeningHours(Resource):
         
 
 
-def _convert_opening_hours_json(json_data):
+def _convert_opening_hours_json(json_data: Dict) -> str:
     working_time_slots = []
     days_of_week = ['monday', 'tuesday', 'wednesday',
                     'thursday', 'friday', 'saturday', 'sunday']

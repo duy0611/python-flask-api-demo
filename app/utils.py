@@ -5,7 +5,7 @@ MIN_UNIX_TIME = 0
 MAX_UNIX_TIME = 86399
 
 
-def get_readable_hour(unix_time):
+def get_readable_hour(unix_time: int) -> str:
     '''Convert unix time to HH:MM:SS AM/PM format'''
 
     if (unix_time < MIN_UNIX_TIME) or (unix_time > MAX_UNIX_TIME):
